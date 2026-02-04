@@ -19,7 +19,7 @@ This repository is inspired and built on the CARLA library. CARLA is a python li
 
 ### Available Datasets
 
-| Name                         | Source                                                                              | TensorFlow |  
+| Name                         | Source                                                                              | TensorFlow |
 | ---------------------------- | ----------------------------------------------------------------------------------- | ---------- |
 | Adult                        | [Source](https://archive.ics.uci.edu/ml/datasets/adult)                             |            |
 | COMPASS                      | [Source](https://www.kaggle.com/danofer/compass)                                    |     X      |
@@ -235,11 +235,11 @@ In this repository, we follow the common hierarchy:
 
 **Repeatability → Reproducibility → Replicability**
 
-- **Repeatability:** same team, same setup, same results  
-- **Reproducibility:** different team, same artifacts (code/data), similar results  
-- **Replicability:** different team, new implementation, similar findings  
+- **Repeatability:** same team, same setup, same results
+- **Reproducibility:** different team, same artifacts (code/data), similar results
+- **Replicability:** different team, new implementation, similar findings
 
-Our focus in this benchmark is primarily **reproducibility**, meaning:  
+Our focus in this benchmark is primarily **reproducibility**, meaning:
 results can be obtained again by others using our provided code and evaluation setup.
 
 
@@ -255,7 +255,6 @@ For each method, we follow this structured process:
    - Add a `reproduce.py` script to verify reported results across one or more test cases.
 4. **Badge Assignment**
    - Assign a badge level based on the method’s reproducibility coverage.
-
 
 ### Badge Levels (0–3)
 
