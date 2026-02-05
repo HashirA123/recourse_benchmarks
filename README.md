@@ -19,7 +19,7 @@ This repository is inspired and built on the CARLA library. CARLA is a python li
 
 ### Available Datasets
 
-| Name                         | Source                                                                              | TensorFlow |
+| Name                         | Source                                                                              | Sklearn |
 | ---------------------------- | ----------------------------------------------------------------------------------- | ---------- |
 | Adult                        | [Source](https://archive.ics.uci.edu/ml/datasets/adult)                             |            |
 | COMPASS                      | [Source](https://www.kaggle.com/danofer/compass)                                    |     X      |
@@ -281,13 +281,24 @@ Each `reproduce.py` script is designed to:
 
 ### How to Contribute a Reproducibility Script
 
-If you are adding a new method (or improving an existing one), we strongly encourage including a `reproduce.py` file.
+If you are adding a new method, only if a `reproduce.py` file is included, and a reproducability level of >=1 is achieved, will that method be included in the global benchmarking.
 
 At minimum (**Level 1**), it should reproduce:
 at least one dataset + one model result from the original paper.
 
-If a paper’s results cannot be fully reproduced (e.g., missing hyperparameters or unavailable datasets),
-please document the gap clearly in the method folder.
+If a paper’s results cannot be fully reproduced please document the gap clearly in the method folder.
+
+If reproduction fails, please:
+- State **which datasets, models, and metrics** were attempted.
+- Briefly explain **why reproduction was not possible** for the missing results.
+- If assumptions or approximations were made, state them explicitly.
+- Still provide a runnable `reproduce.py` script when partial reproduction is possible.
+
+**Common reasons for reproduction failure include:**
+- Missing or unspecified hyperparameters
+- Unavailable or proprietary datasets
+- Ambiguous experimental protocols or preprocessing
+- Uncontrolled randomness or missing seeds
 
 ## Contributing
 
