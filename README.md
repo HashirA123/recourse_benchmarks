@@ -2,13 +2,10 @@
 
 # CHARM LAB RECOURSE LIBRARY
 
-<img align="right" width="240" height="200" src="https://github.com/carla-recourse/CARLA/blob/main/images/carla_logo_square.png?raw=true">
-
 This repository is inspired and built on the CARLA library. CARLA is a python library to benchmark counterfactual explanation and recourse models. It comes out-of-the box with commonly used datasets and various machine learning models. Designed with extensibility in mind: Easily include your own counterfactual methods, new machine learning models or other datasets. Find extensive documentation [here](https://carla-counterfactual-and-recourse-library.readthedocs.io/en/latest/)! Our arXiv paper can be found [here](https://arxiv.org/pdf/2108.00783.pdf).
 
 **What is algorithmic recourse?** As machine learning (ML) models are increasingly being deployed in high-stakes applications, there has been growing interest in providing recourse to individuals adversely impacted by model predictions (e.g., below we depict the canonical recourse example for an applicant whose loan has been denied). This library provides a starting point for researchers and practitioners alike, who wish to understand the inner workings of various counterfactual explanation and recourse methods and their underlying assumptions that went into the design of these methods.
 
-![motivating example](https://github.com/carla-recourse/CARLA/blob/main/images/motivating_cartoon.png?raw=true)
 
 ### Notebooks / Examples
 
@@ -22,14 +19,17 @@ This repository is inspired and built on the CARLA library. CARLA is a python li
 
 ### Available Datasets
 
-| Name                         | Source                                                        |
-| ---------------------------- | ------------------------------------------------------------- |
-| Adult                        | [Source](https://archive.ics.uci.edu/ml/datasets/adult)       |
-| COMPASS                      | [Source](https://www.kaggle.com/danofer/compass)              |
-| Give Me Some Credit (Credit) | [Source](https://www.kaggle.com/c/GiveMeSomeCredit/data)      |
-| German Credit                | [Source](https://www.kaggle.com/datasets/uciml/german-credit) |
-| Mortgage                     |                                                               |
-| TwoMoon                      |                                                               |
+| Name                         | Source                                                                              | Sklearn |
+| ---------------------------- | ----------------------------------------------------------------------------------- | ---------- |
+| Adult                        | [Source](https://archive.ics.uci.edu/ml/datasets/adult)                             |            |
+| COMPASS                      | [Source](https://www.kaggle.com/danofer/compass)                                    |     X      |
+| Give Me Some Credit (Credit) | [Source](https://www.kaggle.com/c/GiveMeSomeCredit/data)                            |            |
+| German Credit                | [Source](https://www.kaggle.com/datasets/uciml/german-credit)                       |            |
+| Mortgage                     |                                                                                     |            |
+| TwoMoon                      |                                                                                     |     X      |
+| Breast Cancer                | [Source](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) |     X      |
+| Boston Housing               |                                                                                     |            |
+| SBA                          |                                                                                     |            |
 
 ### Provided Machine Learning Models
 
@@ -44,20 +44,32 @@ This repository is inspired and built on the CARLA library. CARLA is a python li
 The framework a counterfactual method currently works with is dependent on its underlying implementation.
 It is planned to make all recourse methods available for all ML frameworks . The latest state can be found here:
 
-| Recourse Method                                            | Paper                                                                                                                        | Tensorflow | Pytorch | SKlearn | XGBoost |
-| ---------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------- | :--------: | :-----: | :-----: | :-----: |
-| CCHVAE                                                     | [Source](https://arxiv.org/pdf/1910.09398.pdf)                                                                               |            |    X    |         |         |
-| Contrastive Explanations Method (CEM)                      | [Source](https://arxiv.org/pdf/1802.07623.pdf)                                                                               |     X      |         |         |         |
-| Counterfactual Latent Uncertainty Explanations (CLUE)      | [Source](https://arxiv.org/pdf/2006.06848.pdf)                                                                               |            |    X    |         |         |
-| CRUDS                                                      | [Source](https://finale.seas.harvard.edu/files/finale/files/cruds-_counterfactual_recourse_using_disentangled_subspaces.pdf) |            |    X    |         |         |
-| Diverse Counterfactual Explanations (DiCE)                 | [Source](https://arxiv.org/pdf/1905.07697.pdf)                                                                               |     X      |    X    |         |         |
-| Feasible and Actionable Counterfactual Explanations (FACE) | [Source](https://arxiv.org/pdf/1909.09369.pdf)                                                                               |     X      |    X    |         |         |
-| FeatureTweak                                               | [Source](https://arxiv.org/pdf/1706.06691.pdf)                                                                               |            |         |    X    |    X    |
-| FOCUS                                                      | [Source](https://arxiv.org/pdf/1911.12199.pdf)                                                                               |            |         |    X    |    X    |
-| Growing Spheres (GS)                                       | [Source](https://arxiv.org/pdf/1712.08443.pdf)                                                                               |     X      |    X    |         |         |
-| Mace                                                       | [Source](https://arxiv.org/pdf/1905.11190.pdf)                                                                               |            |         |    X    |         |
-| Revise                                                     | [Source](https://arxiv.org/pdf/1907.09615.pdf)                                                                               |            |    X    |         |         |
-| Wachter                                                    | [Source](https://arxiv.org/ftp/arxiv/papers/1711/1711.00399.pdf)                                                             |            |    X    |         |         |
+| Recourse Method                                            | Paper                                                            | Tensorflow | Pytorch | SKlearn | XGBoost | Reproducability Level | Note |
+| ---------------------------------------------------------- | :--------------------------------------------------------------: | :--------: | :-----: | :-----: | :-----: | :-------------------: | :--: |
+| Actionable Recourse                                        | [Source](https://dl.acm.org/doi/10.1145/3287560.3287566)         |            |         |         |         |           0           |      |
+| CausalRecourse                                             | [Source](https://arxiv.org/abs/2002.06278)                       |            |    X    |    X    |         |           0           | sklearn is just for some data processing.   |
+| CCHVAE                                                     | [Source](https://arxiv.org/pdf/1910.09398.pdf)                   |            |    X    |         |         |           0           |      |
+| Contrastive Explanations Method (CEM)                      | [Source](https://arxiv.org/pdf/1802.07623.pdf)                   |     X      |         |         |         |           0           |      |
+| CFVAE                                                      | [Source](https://arxiv.org/abs/1912.03277)                   |            |    X    |    X    |         |           1           | sklearn is being used for reproduction.     |
+| CFRL                                                       | [Source](https://arxiv.org/abs/2106.02597)                   |            |    X    |    X    |         |           1           | sklearn is being used helper functions.     |
+| CLAPROAR                                                   | [Source](https://arxiv.org/abs/2308.08187)                   |            |    X    |    X    |         |           1           | sklearn is being used for reproduction.     |
+| Counterfactual Latent Uncertainty Explanations (CLUE)      | [Source](https://arxiv.org/pdf/2006.06848.pdf)                   |            |    X    |         |         |           0           |      |
+| CRUDS                                                      | [Source](https://finale.seas.harvard.edu/publications/cruds-counterfactual-recourse-using-disentangled-subspaces)                   |            |    X    |         |         |           0           |      |
+| Diverse Counterfactual Explanations (DiCE)                 | [Source](https://arxiv.org/pdf/1905.07697.pdf)                   |            |         |    X    |         |           0           |      |
+| Feasible and Actionable Counterfactual Explanations (FACE) | [Source](https://arxiv.org/pdf/1909.09369.pdf)                   |            |         |    X    |         |           0           |      |
+| FeatureTweak                                               | [Source](https://arxiv.org/pdf/1706.06691.pdf)                   |            |         |    X    |    X    |           0           |      |
+| FOCUS                                                      | [Source](https://arxiv.org/pdf/1911.12199.pdf)                   |     X      |         |    X    |         |           0           |      |
+| Genre                                                      | [Source](https://arxiv.org/abs/2505.07351)                   |            |    X    |    X    |         |           1           | sklearn is being used for reproduction.     |
+| Gravitational                                              | [Source](https://arxiv.org/abs/2308.08187)                   |            |    X    |         |         |           1           |      |
+| Greedy                                                     | [Source](https://arxiv.org/abs/2103.08951)                   |     X      |         |         |         |           2           |      |
+| Growing Spheres (GS)                                       | [Source](https://arxiv.org/pdf/1712.08443.pdf)                   |            |         |         |         |           0           |      |
+| LARR                                                       | [Source](https://arxiv.org/abs/2410.01580)                   |            |    X    |    X    |         |           1           | sklearn is being used for reproduction.     |
+| Mace                                                       | [Source](https://arxiv.org/pdf/1905.11190.pdf)                   |            |         |    X    |         |           0           |      |
+| Probe                                                      | [Source](https://arxiv.org/abs/2203.06768)                   |            |    X    |         |         |           2           |      |
+| RBR                                                        | [Source](https://openreview.net/forum?id=BqIM6SIoqgq)                   |            |    X    |    X    |         |           1           |      |
+| Revise                                                     | [Source](https://arxiv.org/pdf/1907.09615.pdf)                   |            |    X    |         |         |           0           |      |
+| ROAR                                                       | [Source](https://arxiv.org/abs/2102.13620)                   |            |    X    |         |         |           2           |      |
+| Wachter                                                    | [Source](https://arxiv.org/ftp/arxiv/papers/1711/1711.00399.pdf) |            |    X    |         |         |           0           |      |
 
 ## Installation/Setup
 
@@ -213,6 +225,81 @@ python -m experiments.run_experiment
 black .\
 ```
 
+## Reproducibility & Badge System
+
+A key goal of **Recourse Benchmarks** is to provide a unified and trustworthy evaluation of algorithmic recourse methods.
+To support transparency and reliable comparisons, we maintain a **structured reproducibility framework** for each implemented method.
+
+### What We Mean by "Reproducibility"
+In this repository, we follow the common hierarchy:
+
+**Repeatability → Reproducibility → Replicability**
+
+- **Repeatability:** same team, same setup, same results
+- **Reproducibility:** different team, same artifacts (code/data), similar results
+- **Replicability:** different team, new implementation, similar findings
+
+Our focus in this benchmark is primarily **reproducibility**, meaning:
+results can be obtained again by others using our provided code and evaluation setup.
+
+
+### Reproducibility Workflow (Per Method)
+
+For each method, we follow this structured process:
+
+1. **Paper Analysis**
+   - Identify reported datasets, models, configurations, and metrics.
+2. **Implementation**
+   - Implement the method using the project’s unified interface.
+3. **Testing via `reproduce.py`**
+   - Add a `reproduce.py` script to verify reported results across one or more test cases.
+4. **Badge Assignment**
+   - Assign a badge level based on the method’s reproducibility coverage.
+
+### Badge Levels (0–3)
+
+Each implemented method is assigned a reproducibility badge level:
+
+| Badge Level | Meaning |
+|------------|---------|
+| **Level 0** | Implementation exists, but **no reproducibility support** is provided. |
+| **Level 1** | **Minimal reproduction**: results reproduced for **one** case (e.g., one dataset + one model). |
+| **Level 2** | **Partial reproduction**: multiple cases reproduced, but **not all** results from the paper are covered. |
+| **Level 3** | **Full reproduction**: **all reported results** for the method are reproduced within our benchmark setup. |
+
+
+### Where to Find Reproducibility Scripts
+
+For methods that support reproduction, you will typically find a file such as:
+
+- `methods/<method_name>/reproduce.py`
+
+Each `reproduce.py` script is designed to:
+- run standardized experiments for that method,
+- verify correct integration with our pipeline.
+
+
+### How to Contribute a Reproducibility Script
+
+If you are adding a new method, only if a `reproduce.py` file is included, and a reproducability level of >=1 is achieved, will that method be included in the global benchmarking.
+
+At minimum (**Level 1**), it should reproduce:
+at least one dataset + one model result from the original paper.
+
+If a paper’s results cannot be fully reproduced please document the gap clearly in the method folder.
+
+If reproduction fails, please:
+- State **which datasets, models, and metrics** were attempted.
+- Briefly explain **why reproduction was not possible** for the missing results.
+- If assumptions or approximations were made, state them explicitly.
+- Still provide a runnable `reproduce.py` script when partial reproduction is possible.
+
+**Common reasons for reproduction failure include:**
+- Missing or unspecified hyperparameters
+- Unavailable or proprietary datasets
+- Ambiguous experimental protocols or preprocessing
+- Uncontrolled randomness or missing seeds
+
 ## Contributing
 
 Contributions of any kind are very much welcome! Take a look at the To-Do issues section to see what we are currently working on. If you have an idea for a new feature or a bug you want to fix, please follow look at the subsections below for our branching and commit policies, and make a PR with your suggestions.
@@ -260,10 +347,7 @@ Contributions of any kind are very much welcome! Take a look at the To-Do issues
 ## To-Do Issues
 
 1. Expand the existing repository of available recourse methods to include new recourse methods.
-   - Minimum Observables - https://arxiv.org/abs/1907.04135
-   - ClaPROAR - https://arxiv.org/abs/2308.08187
-   - PROBE - https://arxiv.org/abs/2203.06768
-2. Extend the existing frontend design to incorporate new interactive features (Adjourned).
-3. Revamp the entire library to a newer python version.
-4. Refactor existing methods to utilize a singular backend type.
+2. Revamp the entire library to a newer python version.
+3. Refactor existing methods to utilize a singular backend type.
+4. Extend the existing frontend design to incorporate new interactive features (Adjourned).
 5. Extending the repo to be installible through pip.
